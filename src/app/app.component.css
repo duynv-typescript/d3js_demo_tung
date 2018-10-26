@@ -1,0 +1,30 @@
+:host ::ng-deep .bar {
+    fill: steelblue;
+}
+:host ::ng-deep .bar:hover {
+    fill: orange;
+    cursor: pointer;
+}
+
+:host ::ng-deep path {
+    stroke: transparent;
+    fill: none;
+}
+
+:host ::ng-deep .line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2px;
+}
+
+:host ::ng-deep .point {
+    stroke: steelblue;
+    stroke-width: 1;
+    fill: steelblue;
+    cursor: pointer;
+}
+
+:host ::ng-deep .focus {
+    stroke: #ccc;
+    stroke-width:2;
+}
