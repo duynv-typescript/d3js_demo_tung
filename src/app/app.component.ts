@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
     renderChart(data_input) {
 
         let svg = d3.select("svg"),
-            margin = {top: 20, right: 20, bottom: 30, left: 40},
+            margin = {top: 20, right: 20, bottom: 30, left: 75},
             width = +svg.attr("width") - margin.left - margin.right,
             height = +svg.attr("height") - margin.top - margin.bottom,
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -144,22 +144,22 @@ export class AppComponent implements OnInit {
             .attr("text-anchor", "middle")
             .text("Testing");
 
-        svg.append("text")
-            .attr("x", '10%')
-            .attr("y", '50px')
-            .attr("text-anchor", "middle")
-            .style('background-color','red')
-            .text(" << Previous");
-
-        svg.append("text")
-            .attr('class','btn btn-primary')
-            .attr('type','button')
-            .attr("width", '100px')
-            .attr("height",'100px')
-            .attr("x", '90%')
-            .attr("y", '50px')
-            .attr("text-anchor", "middle")
-            .text('Next >>' )
+        // svg.append("text")
+        //     .attr("x", '10%')
+        //     .attr("y", '50px')
+        //     .attr("text-anchor", "middle")
+        //     .style('background-color','red')
+        //     .text(" << Previous");
+        //
+        // svg.append("text")
+        //     .attr('class','btn btn-primary')
+        //     .attr('type','button')
+        //     .attr("width", '100px')
+        //     .attr("height",'100px')
+        //     .attr("x", '90%')
+        //     .attr("y", '50px')
+        //     .attr("text-anchor", "middle")
+        //     .text('Next >>' )
 
             var legend = g.append("g")
                 .attr("font-family", "sans-serif")

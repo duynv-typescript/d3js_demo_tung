@@ -1,18 +1,11 @@
 <div class="container">
 <div class="row">
-    <div class="col-md-12 col-lg-12">
+    <div class="col-md-12 col-lg-12 box">
         <svg width="1000" height="700" >
         </svg>
+        <fa name="arrow-circle-left" class="pre" (click)="update_pre()"  [ngStyle]="{ 'font-size':'50px'}" ></fa>
+        <fa name="arrow-circle-right" class="next" (click)="update_next()"  [ngStyle]="{ 'font-size':'50px'}" ></fa>
     </div>
 </div>
-    <div class="row">
-        <div class="col-md-6">
-            <fa name="arrow-circle-left" class="pre" [ngStyle]="{ 'font-size':'50px'}" ></fa>
-            <fa name="arrow-circle-right" class="next" [ngStyle]="{ 'font-size':'50px'}" ></fa>
-            <i class="far fa-arrow-square-right"></i>
-            <a href="javascript:" (click)="update_pre()" type="button" class="btn">Previous</a>
-            <a href="javascript:" (click)="update_next()" type="button" class="btn">Next</a>
-        </div>
-    </div>
 </div>
 
