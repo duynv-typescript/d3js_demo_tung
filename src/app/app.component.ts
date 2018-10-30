@@ -5,9 +5,6 @@ declare const $: any;
 interface ChartData {
   date: string,
   price: number,
-
-
-
 }
 enableProdMode();
 @Component({
@@ -54,7 +51,7 @@ export class AppComponent implements OnInit {
 
         let x1 = d3.scaleBand()
         //margin giữa 2 côt
-            .padding(0.05);
+
 
         let y = d3.scaleLinear()
         //chiều cao của biểu đồ
@@ -130,7 +127,7 @@ export class AppComponent implements OnInit {
                 .call(yAxis)
                 .append("text")
                 .attr("transform", "translate(" + 0 + ", 0)")
-                .attr("x", 2)
+                .attr("x", 890)
                 .attr("y", y(y.ticks().pop()) + 0.5)
                 .attr("dy", "0.32em")
                 .attr("fill", "#000")
@@ -143,8 +140,6 @@ export class AppComponent implements OnInit {
             .attr("y", 10 - (margin.top / 2))
             .attr("text-anchor", "middle")
             .text("Testing");
-
-
 
             var legend_colum = g.append("g")
                 .attr("font-family", "sans-serif")
@@ -162,7 +157,6 @@ export class AppComponent implements OnInit {
                     });
                     return "translate(" + (25 + 7 * i) * (i + 1) + "," + ((1 - dataFirst[0][keys[i]] / max) * 400 - 100*((1 - dataFirst[0][keys[i]] / max))) + ")";
                 });
-
             legend_colum.append("text")
                 .attr("font-family", "sans-serif")
                 .attr("font-size", 10)
