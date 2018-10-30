@@ -77,3 +77,9 @@ div.box{
     background-color: #FFFFFF;
     padding-bottom: 4px;
 }
+div.tooltip {
+    text-align: center;
+    background: #eae5e5f2;
+    padding: 5px;
+    border-radius: 5px;
+}

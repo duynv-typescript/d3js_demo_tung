@@ -37,22 +37,21 @@ export class AppComponent implements OnInit {
         this.renderChart(this.data_begin);
     }
     renderChart(data_input) {
-
         let svg = d3.select("svg"),
             margin = {top: 20, right: 20, bottom: 30, left: 75},
-            width = +svg.attr("width") - margin.left - margin.right,
+            width = + parseInt(d3.select('.box').style('width')) - margin.left - margin.right ,
             height = +svg.attr("height") - margin.top - margin.bottom,
-            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            g = svg.append("g").attr("transform", "translate(" + margin.right + "," + margin.top + ")");
+        svg.attr("width",parseInt(d3.select('.box').style('width')));
         let x0 = d3.scaleBand()
         //chiều rộng các của biểu đồ
             .rangeRound([0, width])
             //margin giữa các côt chính
             .paddingInner(0.1);
+        console.log(parseInt(d3.select('.box').style('width')));
 
         let x1 = d3.scaleBand()
         //margin giữa 2 côt
-
-
         let y = d3.scaleLinear()
         //chiều cao của biểu đồ
             .rangeRound([height, 0]);
@@ -83,6 +82,7 @@ export class AppComponent implements OnInit {
                 });
             })]).nice();
             let dataFirst=this.data_now;
+            let tooltip=d3.select("body").append("div").attr("class", "tooltip");
             //x0(d.State) : dịch chuyển các cột với trục ox giá trị tăng dần
             g.append("g")
                 .selectAll("g")
@@ -111,7 +111,22 @@ export class AppComponent implements OnInit {
                 })
                 .attr("fill", function (d) {
                     return z(d.key);
-                });
+                })
+
+                .on("mousemove", function(d){
+                        tooltip
+                        .style("left", d3.event.pageX - 50+ "px")
+                        .style("top", d3.event.pageY - 70 + "px")
+                        .style("display", "block")
+                        .style("text-align","center")
+                        .style("background","#eae5e5f2")
+                        .style("padding","5px")
+                        .style("border-radius","5px")
+                        .style("opacity", "1")
+                        .html( (d.key) + "<br>" + "" + (d.value));
+                    console.log(d)
+                },100)
+                .on("mouseout", function(d){  tooltip.style("display", "none").style("opacity", "0");});
 
 
             g.append("g")
@@ -120,7 +135,7 @@ export class AppComponent implements OnInit {
                 .call(d3.axisBottom(x0));
             let yAxis = d3.axisRight(y)
                 .tickFormat(d =>  d + '%')
-                .ticks(2, "s")
+                .ticks(3, "s")
                 .tickSize(width)
             g.append("g")
                 .attr("class", "axis")
@@ -155,8 +170,11 @@ export class AppComponent implements OnInit {
                             return d[key];
                         });
                     });
-                    return "translate(" + (25 + 7 * i) * (i + 1) + "," + ((1 - dataFirst[0][keys[i]] / max) * 400 - 100*((1 - dataFirst[0][keys[i]] / max))) + ")";
+                    let a= (parseInt(d3.select('.box').style('width') )- margin.left - margin.right-100-220)/22;
+                    console.log(a)
+                    return "translate(" + (a + 10 * i) * (i + 1) + "," + ((1 - dataFirst[0][keys[i]] / max) * 400 - 100*((1 - dataFirst[0][keys[i]] / max))) + ")";
                 });
+            //console.log('legend_colum',legend_colum);
             legend_colum.append("text")
                 .attr("font-family", "sans-serif")
                 .attr("font-size", 10)
