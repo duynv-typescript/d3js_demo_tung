@@ -20,18 +20,18 @@ export class AppComponent implements OnInit {
     index_data=0;
     data_now:any=[];
     data_begin= [
-        {State: "1", Đỏ: "10", Xanh: "30"},
-        {State: "2", Đỏ: "40", Xanh: "50"},
-        {State: "3", Đỏ: "20", Xanh: "60"},
-        {State: "4", Đỏ: "10", Xanh: "10"},
-        {State: "5", Đỏ: "50", Xanh: "75"},
-        {State: "6", Đỏ: "70", Xanh: "40"},
-        {State: "7", Đỏ: "40", Xanh: "10"},
-        {State: "8", Đỏ: "50", Xanh: "10"},
-        {State: "9", Đỏ: "75", Xanh: "40"},
-        {State: "10", Đỏ: "10", Xanh: "50"},
-        {State: "11", Đỏ: "50", Xanh: "10"},
-        {State: "12", Đỏ: "40", Xanh: "90"},
+        {State: "1回", 平均: "10", 自社: "30"},
+        {State: "2回", 平均: "40", 自社: "50"},
+        {State: "3回", 平均: "20", 自社: "60"},
+        {State: "4回", 平均: "10", 自社: "10"},
+        {State: "5回", 平均: "50", 自社: "75"},
+        {State: "6回", 平均: "70", 自社: "40"},
+        {State: "7回", 平均: "40", 自社: "10"},
+        {State: "8回", 平均: "50", 自社: "10"},
+        {State: "9回", 平均: "75", 自社: "40"},
+        {State: "10回", 平均: "10", 自社: "50"},
+        {State: "11回", 平均: "50", 自社: "10"},
+        {State: "12回", 平均: "40", 自社: "90"},
     ];
 
     constructor(private ngZone: NgZone) {
@@ -65,13 +65,13 @@ export class AppComponent implements OnInit {
             let data=data_input;
             let i=0;
             this.data_now=data.filter((currElement, index) => {
-                if(index >= this.index && i<=5 ){
+                if(index >= this.index && i<=10 ){
                     i++;
                     this.index_data=index;
                     return currElement;
                 }
             });
-        this.data_now['columns']=["State", "Đỏ", "Xanh"];
+        this.data_now['columns']=["State", "平均", "自社"];
             // key =["Trắng", "Xanh"]
             var keys = this.data_now['columns'].slice(1);
             // ["CA", "TX", "NY", "FL", "IL", "PA"] data.map(function(d) { return d.State; })
@@ -123,7 +123,7 @@ export class AppComponent implements OnInit {
                 .call(d3.axisBottom(x0));
             let yAxis = d3.axisRight(y)
                 .tickFormat(d =>  d + '%')
-                .ticks(3, "s")
+                .ticks(2, "s")
                 .tickSize(width)
             g.append("g")
                 .attr("class", "axis")
@@ -144,47 +144,7 @@ export class AppComponent implements OnInit {
             .attr("text-anchor", "middle")
             .text("Testing");
 
-        // svg.append("text")
-        //     .attr("x", '10%')
-        //     .attr("y", '50px')
-        //     .attr("text-anchor", "middle")
-        //     .style('background-color','red')
-        //     .text(" << Previous");
-        //
-        // svg.append("text")
-        //     .attr('class','btn btn-primary')
-        //     .attr('type','button')
-        //     .attr("width", '100px')
-        //     .attr("height",'100px')
-        //     .attr("x", '90%')
-        //     .attr("y", '50px')
-        //     .attr("text-anchor", "middle")
-        //     .text('Next >>' )
 
-            var legend = g.append("g")
-                .attr("font-family", "sans-serif")
-                .attr("font-size", 10)
-                .attr("text-anchor", "end")
-                .selectAll("g")
-                .data(keys.slice().reverse())
-                .enter().append("g")
-                .attr("transform", function (d, i) {
-                    return "translate(0," + i * 20 + ")";
-                });
-
-            legend.append("rect")
-                .attr("x", width - 19)
-                .attr("width", 19)
-                .attr("height", 19)
-                .attr("fill", z);
-
-            legend.append("text")
-                .attr("x", width - 24)
-                .attr("y", 9.5)
-                .attr("dy", "0.32em")
-                .text(function (d) {
-                    return d;
-                });
 
             var legend_colum = g.append("g")
                 .attr("font-family", "sans-serif")
@@ -200,7 +160,7 @@ export class AppComponent implements OnInit {
                             return d[key];
                         });
                     });
-                    return "translate(" + (50 + 10 * i) * (i + 1) + "," + ((1 - dataFirst[0][keys[i]] / max) * 700 - 80*((1 - dataFirst[0][keys[i]] / max))) + ")";
+                    return "translate(" + (25 + 7 * i) * (i + 1) + "," + ((1 - dataFirst[0][keys[i]] / max) * 400 - 100*((1 - dataFirst[0][keys[i]] / max))) + ")";
                 });
 
             legend_colum.append("text")
