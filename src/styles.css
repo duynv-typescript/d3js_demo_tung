@@ -1,1 +1,98 @@
-/* Add application styles & imports to this file! */
+/* You can add global styles to this file, and also import other style files */
+.line {
+  /*   fill: none が無いとpath の始点と終点を結んで黒に塗りつぶされる */
+  fill: none;
+  stroke: #eaeaea;
+  stroke-width: 1.5px;
+}
+.lineRed {
+  fill: none;
+  stroke: red;
+  stroke-width: 1.5px;
+}
+.lineBlue {
+  fill: none;
+  stroke: blue;
+  stroke-width: 1.5px;
+}
+.lineGray {
+  fill: none;
+  stroke: gray;
+  stroke-width: 1.5px;
+}
+.lineGreen {
+  fill: none;
+  stroke: gray;
+  stroke-width: 1.5px;
+}
+#graphic, #graphic2, #graphic3 {
+  padding-top: 60px;
+}
+
+.gX line, .gY line {
+  display: none;
+}
+.gY path {
+  display: none;
+}
+.gX path {
+  display: none;
+}
+.gY text {
+  color: gray;
+}
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 160px;
+  height: 40px;
+  padding: 2px;
+  background: #fff;
+  font-weight: bold;
+}
+[addcss=red] {
+  border: 2px solid red !important;
+}
+[addcss=blue] {
+  border: 2px solid blue !important;
+}
+[addcss=gray] {
+  border: 2px solid gray !important;
+}
+[addcss=green] {
+  border: 2px solid green !important;
+}
+.red {
+  fill: Red
+}
+.blue {
+  fill: Blue
+}
+.gray {
+  fill: Gray
+}
+.green {
+  fill: Green
+}
+.txtRed {
+  fill:red;
+  font-weight: bold;
+}
+.txtBlue {
+  fill:blue;
+  font-weight: bold;
+}
+.txtGray {
+  fill:gray;
+  font-weight: bold;
+}
+.txtGreen {
+  fill:green;
+  font-weight: bold;
+}
+#btn-next, #btn-next2, #btn-next3{
+  outline: none;
+}
+#btn-preview, #btn-preview2, #btn-preview3 {
+  outline: none;
+}

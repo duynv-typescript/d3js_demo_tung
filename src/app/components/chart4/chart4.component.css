@@ -1,0 +1,86 @@
+:host ::ng-deep .bar {
+  fill: steelblue;
+}
+:host ::ng-deep .bar:hover {
+  fill: orange;
+  cursor: pointer;
+}
+
+:host ::ng-deep path {
+  stroke: transparent;
+  fill: none;
+}
+
+:host ::ng-deep .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+:host ::ng-deep .point {
+  stroke: steelblue;
+  stroke-width: 1;
+  fill: steelblue;
+  cursor: pointer;
+}
+
+:host ::ng-deep .focus {
+  stroke: #ccc;
+  stroke-width:2;
+}
+svg a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+svg a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+svg .previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+svg .next {
+  background-color: #4CAF50;
+  color: white;
+}
+
+svg .round {
+  border-radius: 50%;
+}
+text.next{
+  padding: 100px;
+}
+button.pre {
+
+}
+button.next {
+
+}
+div.box{
+
+}
+.btn-arrow {
+  border: solid 1px #707070;
+  border-radius: 4px;
+  color: #7F7F7F;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  padding-bottom: 4px;
+}
+div.tooltip {
+  text-align: center;
+  background: #eae5e5f2;
+  padding: 5px;
+  border-radius: 5px;
+}
+.btn-change{
+  display: flex;
+  justify-content: center;
+}
+

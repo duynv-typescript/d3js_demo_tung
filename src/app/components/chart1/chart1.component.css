@@ -1,0 +1,16 @@
+div#btn {
+  position: absolute;
+  top: 85px;
+  width: 100%;
+}
+button {
+  width: 60px;
+  height: 40px;
+  position: absolute;
+}
+button > span{
+  color: gray;
+}
+button#btn-next {
+  right: 80px;
+}
