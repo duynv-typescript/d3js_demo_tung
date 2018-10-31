@@ -56,17 +56,13 @@ text.next{
     padding: 100px;
 }
 button.pre {
-    position: absolute;
-    left: 50px;
-    top: 50px;
+
 }
 button.next {
-    position: absolute;
-    right: 50px;
-    top: 50px;
+
 }
 div.box{
-    position: relative;
+
 }
 .btn-arrow {
     border: solid 1px #707070;
@@ -82,4 +78,8 @@ div.tooltip {
     background: #eae5e5f2;
     padding: 5px;
     border-radius: 5px;
+}
+.btn-change{
+    display: flex;
+    justify-content: center;
 }
